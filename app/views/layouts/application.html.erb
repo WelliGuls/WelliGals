@@ -2,11 +2,31 @@
 <html>
 <head>
   <title>WelliGuls</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+
+  <h1><%= link_to root_path do %>Omni<%end%></h1>
+    <ul>
+      <% if current_user %>
+
+        <li>Signed in as <%= current_user.name %></li>
+        <li><%= current_user.inspect %></li>
+        <li><%= link_to "Sign Out", 'sign_out', method: :delete %> </li>
+      <% else %>
+        <li><%= link_to "auth/facebook" do %> Login <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= flash.each do |key, value| %>
+      <div class = "alert alert-info"><%= value %></div>
+    <% end %>
+
+</nav>
 
 <%= yield %>
 
