@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>WelliGuls</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<nav>
-
-  <h1><%= link_to root_path do %>Omni<%end%></h1>
-    <ul>
+  <head>
+      <title>WelliGuls</title>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav>
       <% if current_user %>
-
-        <li>Signed in as <%= current_user.name %></li>
-        <li><%= current_user.inspect %></li>
-        <li><%= link_to "Sign Out", 'sign_out', method: :delete %> </li>
+        Signed in as <%= current_user.name %>
+        <%= image_tag("http://graph.facebook.com/" + current_user.uid + "/picture") %>
+        <%= link_to "Sign Out", 'sign_out', method: :delete %>
       <% else %>
-        <li><%= link_to "auth/facebook" do %> Login <% end %>
-        </li>
+        <%= link_to "Login", "auth/facebook" %>
       <% end %>
-    </ul>
+    </nav>
 
-    <%= flash.each do |key, value| %>
-      <div class = "alert alert-info"><%= value %></div>
-    <% end %>
+    <%= yield %>
 
-</nav>
-
-<%= yield %>
-
-</body>
+  </body>
 </html>
