@@ -9,4 +9,15 @@ RSpec.feature "StubbedUsers", type: :feature do
       expect(page).to have_content('Sign Out')
     end
   end
+
+  context "Logged in user can log out" do
+    it "Clicking Sign out link user is logged out" do
+      visit root_path
+      mock_auth_hash
+      click_on 'Login'
+      click_on 'Sign Out'
+      expect(page).to have_content('Login')
+    end
+
+  end
 end
