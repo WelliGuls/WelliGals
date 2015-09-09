@@ -12,7 +12,10 @@ RSpec.feature "User can create meetup", type: :feature do
     expect(page).to have_link('Create Meetup')
   end
 
-  it "user clicks the button and is redirected to form"
+  it "user clicks the button and is redirected to form" do
+    click_on 'Create Meetup'
+    expect(curent_path).to eq(new_meetup_path)
+  end
 
   it "clicking 'Create' meetup is saved to database"
 
