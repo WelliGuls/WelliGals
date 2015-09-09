@@ -19,7 +19,7 @@ RSpec.feature "User can create meetup", type: :feature do
 
   it "user can see a form for new meetup" do
     click_on 'Create Meetup'
-    expect(page).to have_css("form#meetup")
+    expect(page).to have_css("form#new_meetup")
   end
 
   # it "clicking 'Create' meetup is saved to database" do
