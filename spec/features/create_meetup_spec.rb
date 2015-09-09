@@ -17,7 +17,16 @@ RSpec.feature "User can create meetup", type: :feature do
     expect(current_path).to eq(new_meetup_path)
   end
 
-  it "clicking 'Create' meetup is saved to database"
+  it "user can see a form for new meetup" do
+    click_on 'Create Meetup'
+    expect(page).to have_css("form#meetup")
+  end
 
-  it "after submit user is redirected to created meetup"
+  # it "clicking 'Create' meetup is saved to database" do
+  #   meetup = build(:meetup)
+  # end
+
+  # it "after submit user is redirected to created meetup" do
+
+  # end
 end
