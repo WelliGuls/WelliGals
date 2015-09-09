@@ -26,7 +26,10 @@ RSpec.feature "User can create meetup", type: :feature do
   #   meetup = build(:meetup)
   # end
 
-  # it "after submit user is redirected to created meetup" do
-
-  # end
+  it "after submit user is redirected to created meetup" do
+    click_on 'Create Meetup'
+    fill_in :meetup_title, with: "cool meetup"
+    click_on 'Create Meetup'
+    expect(current_path).to eq(meetup_path([:id]))
+  end
 end
