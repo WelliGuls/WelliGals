@@ -12,6 +12,8 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pg'
+gem 'therubyracer', platforms: :ruby
+gem 'react-rails', '~> 1.0'
 
 group :development, :test do
   gem 'byebug'
