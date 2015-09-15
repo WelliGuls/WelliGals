@@ -1,5 +1,9 @@
 class MeetupsController < ApplicationController
 
+  def index
+    @meetups = Meetup.all
+  end
+
   def new
 
   end
