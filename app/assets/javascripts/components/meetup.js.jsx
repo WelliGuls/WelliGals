@@ -1,3 +1,4 @@
+
 var  Meetup = React.createClass({
     render: function () {
         return (
@@ -7,17 +8,20 @@ var  Meetup = React.createClass({
               <MeetupDate meetup={this.props.meetup} />
               <MeetupPlace meetup={this.props.meetup} />
               <MeetupCapacity meetup={this.props.meetup} />
-
             </div>
         );
     }
 });
 
 var MeetupTitle = React.createClass({
+
     render: function () {
+        var uid = this.props.user.uid
+        var avatar = "http://graph.facebook.com/" + uid + "/picture"
         return (
             <div className="meetup-title">
               <h2>{this.props.meetup.title} by {this.props.user.name} </h2>
+              <img className="avatar" src={avatar} />
             </div>
         );
     }

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root 'home#index'
+root 'meetups#index'
 
 get 'home/profile' => 'home#profile'
 
