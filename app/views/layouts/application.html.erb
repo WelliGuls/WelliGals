@@ -2,22 +2,53 @@
 <html>
   <head>
       <title>WelliGuls</title>
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-deep_purple.min.css" />
       <%= stylesheet_link_tag    'application', media: 'all' %>
       <%= javascript_include_tag 'application' %>
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
       <%= csrf_meta_tags %>
   </head>
   <body>
-    <nav>
-      <% if current_user %>
-        Signed in as <%= current_user.name %>
-        <%= image_tag("http://graph.facebook.com/" + current_user.uid + "/picture") %>
-        <%= link_to "Sign Out", 'sign_out', method: :delete %>
-      <% else %>
-        <%= link_to "Login", "auth/facebook" %>
-      <% end %>
-    </nav>
+    <% if current_user %>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">The Welli Gals</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <%= image_tag("http://graph.facebook.com/" + current_user.uid + "/picture", class: "mdl-navigation__link" ) %>
+            <%= link_to "New Meetup", new_meetup_path, class: "mdl-navigation__link" %>
+            <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+            <%= link_to "Sign Out", 'sign_out', method: :delete, class: "mdl-navigation__link" %>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">The Welli Guls</span>
+        <nav class="mdl-navigation">
+          <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+          <%= link_to "New Meetup", new_meetup_path, class: "mdl-navigation__link" %>
+          <%= link_to "Sign Out", 'sign_out', method: :delete, class: "mdl-navigation__link" %>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
 
-    <%= yield %>
+          <%= yield %>
+
+        </div>
+      </main>
+    </div>
+    <% else %>
+      <%= link_to "Login", "auth/facebook" %>
+    <% end %>
 
   </body>
 </html>
+
+
