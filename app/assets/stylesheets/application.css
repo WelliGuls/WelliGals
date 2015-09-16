@@ -16,7 +16,17 @@
 
 .meetups {
   width: 50%;
-  margin-left: 25%
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+.meetup {
+  margin-bottom: 15px;
+}
+
+.meetup-author {
+  text-align: right;
+  font-weight: bold;
 }
 
 nav {
@@ -26,11 +36,16 @@ nav {
 .demo-card-wide.mdl-card {
   width: 512px;
 }
-/*.demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('../assets/demos/welcome_card.jpg') center / cover;
-}*/
+.demo-card-wide > .mdl-card__title {
+/*  color: #fff;*/
+  height: 100px;
+  background: url('http://www.vectors4all.net/preview/nice-floral-vector-background.jpg') center / cover;
+}
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
+}
+
+.mdl-card__title-text {
+  font-weight: bolder;
+
 }

@@ -5,7 +5,7 @@ var  Meetup = React.createClass({
 
     render: function () {
         return (
-            <div className="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div className="demo-card-wide mdl-card mdl-shadow--2dp meetup">
               <MeetupTitle meetup={this.props.meetup} user={this.props.user} />
               <MeetupDescription meetup={this.props.meetup} />
               <MeetupDate meetup={this.props.meetup} />
@@ -25,8 +25,7 @@ var MeetupTitle = React.createClass({
 
             <div className="mdl-card__title">
               <h2 className="mdl-card__title-text">{this.props.meetup.title}</h2>
-
-            by {this.props.user.name}
+              <span className="meetup-author">by {this.props.user.name}</span>
 
             </div>
         );
