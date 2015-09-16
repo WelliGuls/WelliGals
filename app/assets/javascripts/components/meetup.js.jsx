@@ -2,7 +2,7 @@ var  Meetup = React.createClass({
     render: function () {
         return (
             <div className="meetup">
-              <MeetupTitle meetup={this.props.meetup} />
+              <MeetupTitle meetup={this.props.meetup} user={this.props.user} />
               <MeetupDescription meetup={this.props.meetup} />
               <MeetupDate meetup={this.props.meetup} />
               <MeetupPlace meetup={this.props.meetup} />
@@ -17,7 +17,7 @@ var MeetupTitle = React.createClass({
     render: function () {
         return (
             <div className="meetup-title">
-              <h2>{this.props.meetup.title} by {this.props.meetup.user_id}</h2>
+              <h2>{this.props.meetup.title} by {this.props.user.name} </h2>
             </div>
         );
     }
