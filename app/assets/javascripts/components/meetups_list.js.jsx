@@ -1,8 +1,6 @@
-
-
 var  MeetupsList = React.createClass({
     getInitialState: function () {
-        return {meetups: this.props.initialMeetups};
+        return {meetups: this.props.initialMeetups}
     },
 
     render: function () {

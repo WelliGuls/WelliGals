@@ -2,6 +2,7 @@ class MeetupsController < ApplicationController
 
   def index
     @meetups = Meetup.all
+    @users = User.all
   end
 
   def new
