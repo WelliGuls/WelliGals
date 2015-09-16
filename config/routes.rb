@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
 root 'home#index'
+
+resources :meetups
 
 get 'home/profile' => 'home#profile'
 
