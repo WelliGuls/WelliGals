@@ -19,7 +19,7 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
-    @user = User.find(session[:user_id])
+    @user = User.find(@meetup[:user_id])
   end
 
   private

@@ -28,7 +28,8 @@ var  MeetupsList = React.createClass({
 
 var  IndexMeetup = React.createClass({
     clickHandler: function(e) {
-      console.log(e)
+      var url = "/meetups/" + this.props.meetup.id
+      location = url
     },
     render: function () {
         return (
