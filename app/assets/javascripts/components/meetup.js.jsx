@@ -3,26 +3,23 @@
 
 var  Meetup = React.createClass({
 
-    clickHandler: function(e) {
-      console.log(e)
-    },
     render: function () {
         var user = this.props.initialUser
         var meetup = this.props.initialMeetup
         return (
-            <div onClick={this.clickHandler} className="demo-card-wide mdl-card mdl-shadow--2dp meetup meetups">
-              <MeetupTitleS meetup={meetup} user={user} />
-              <MeetupDescriptionS meetup={meetup} />
-              <MeetupDateS meetup={meetup} />
-              <MeetupPlaceS meetup={meetup} />
-              <MeetupCapacityS meetup={meetup} />
+            <div className="demo-card-wide mdl-card mdl-shadow--2dp meetup meetups">
+              <MeetupTitle meetup={meetup} user={user} />
+              <MeetupDescription meetup={meetup} />
+              <MeetupDate meetup={meetup} />
+              <MeetupPlace meetup={meetup} />
+              <MeetupCapacity meetup={meetup} />
             </div>
         );
     }
 
 });
 
-var MeetupTitleS = React.createClass({
+var MeetupTitle = React.createClass({
 
     render: function () {
         var uid = this.props.user.uid
@@ -37,7 +34,7 @@ var MeetupTitleS = React.createClass({
     }
 });
 
-var MeetupDescriptionS = React.createClass({
+var MeetupDescription = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__supporting-text">
@@ -47,7 +44,7 @@ var MeetupDescriptionS = React.createClass({
     }
 });
 
-var MeetupDateS = React.createClass({
+var MeetupDate = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">
@@ -57,7 +54,7 @@ var MeetupDateS = React.createClass({
     }
 });
 
-var MeetupPlaceS = React.createClass({
+var MeetupPlace = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">
@@ -67,7 +64,7 @@ var MeetupPlaceS = React.createClass({
     }
 });
 
-var MeetupCapacityS = React.createClass({
+var MeetupCapacity = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">
