@@ -3,20 +3,26 @@
 
 var  Meetup = React.createClass({
 
+    clickHandler: function(e) {
+      console.log(e)
+    },
     render: function () {
+        var user = this.props.initialUser
+        var meetup = this.props.initialMeetup
         return (
-            <div className="demo-card-wide mdl-card mdl-shadow--2dp meetup">
-              <MeetupTitle meetup={this.props.meetup} user={this.props.user} />
-              <MeetupDescription meetup={this.props.meetup} />
-              <MeetupDate meetup={this.props.meetup} />
-              <MeetupPlace meetup={this.props.meetup} />
-              <MeetupCapacity meetup={this.props.meetup} />
+            <div onClick={this.clickHandler} className="demo-card-wide mdl-card mdl-shadow--2dp meetup meetups">
+              <MeetupTitleS meetup={meetup} user={user} />
+              <MeetupDescriptionS meetup={meetup} />
+              <MeetupDateS meetup={meetup} />
+              <MeetupPlaceS meetup={meetup} />
+              <MeetupCapacityS meetup={meetup} />
             </div>
         );
     }
+
 });
 
-var MeetupTitle = React.createClass({
+var MeetupTitleS = React.createClass({
 
     render: function () {
         var uid = this.props.user.uid
@@ -24,15 +30,14 @@ var MeetupTitle = React.createClass({
         return (
 
             <div className="mdl-card__title">
-              <h2 className="mdl-card__title-text">{this.props.meetup.title}</h2>
-              <span className="meetup-author">by {this.props.user.name}</span>
-
+              <div className="mdl-card__title-text">{this.props.meetup.title}</div>
+              <div className="meetup-author">by {this.props.user.name}</div>
             </div>
         );
     }
 });
 
-var MeetupDescription = React.createClass({
+var MeetupDescriptionS = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__supporting-text">
@@ -42,7 +47,7 @@ var MeetupDescription = React.createClass({
     }
 });
 
-var MeetupDate = React.createClass({
+var MeetupDateS = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">
@@ -52,7 +57,7 @@ var MeetupDate = React.createClass({
     }
 });
 
-var MeetupPlace = React.createClass({
+var MeetupPlaceS = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">
@@ -62,7 +67,7 @@ var MeetupPlace = React.createClass({
     }
 });
 
-var MeetupCapacity = React.createClass({
+var MeetupCapacityS = React.createClass({
     render: function () {
         return (
             <div className="mdl-card__actions mdl-card--border">

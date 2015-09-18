@@ -11,13 +11,15 @@ class MeetupsController < ApplicationController
 
   def create
     @meetup = Meetup.create(meetup_params)
+    @meetup.user_id = session[:user_id]
+    @meetup.save
     redirect_to meetup_path(@meetup)
 
   end
 
   def show
     @meetup = Meetup.find(params[:id])
-    render text: ''
+    @user = User.find(session[:user_id])
   end
 
   private
