@@ -1,10 +1,10 @@
 class Meetup < ActiveRecord::Base
   belongs_to :user
 
-  validates :title, presense: true, length: { in: 5..20 }
-  validates :description, presense: true, length: { maximum: 250 }
-  validates :date, :place, presense: true
-  validates :capacity, presense: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :description, presence: true, length: { maximum: 250 }
+  validates :date, presence: true
+  validates :capacity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
 
 
