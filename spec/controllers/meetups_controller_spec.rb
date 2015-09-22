@@ -3,26 +3,19 @@ require 'rails_helper'
 RSpec.describe MeetupsController, type: :controller do
   describe "Meetups API" do
     describe "POST /meetups" do
-
-      xit "creates a meetup" do
+      before do
         user = create(:user)
         sign_in user
-        meetup_params = {
-          "meetup" => {
-             "title" => "tea-party",
-             "description" => "a very nice and warm tea party",
-             "date" => "12 Sept 2015",
-             "place" => "nice place",
-             "duration" => 3,
-             "capacity" => 10
-          }
-        }.to_json
-        post :create, meetup: meetup_params
+        meetup_params = create(:meetup, title: "tea-party").to_json
+        post :create, meetup_params
+      end
+
+      it "creates a meetup" do
         expect(Meetup.last.title).to eq("tea-party")
       end
 
-      xit "returns success status after creating meetup" do
-
+      it "returns success status after creating meetup" do
+        expect(response.status).to be 201
       end
 
     end
