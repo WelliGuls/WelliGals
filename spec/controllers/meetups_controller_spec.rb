@@ -17,11 +17,7 @@ RSpec.describe MeetupsController, type: :controller do
              "capacity" => '10'
           }
         }.to_json
-
-        puts meetup_params
-
         post :create, meetup_params
-        puts Meetup.last
         expect(Meetup.last.title).to eq("tea-party")
       end
 

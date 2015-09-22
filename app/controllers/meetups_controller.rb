@@ -1,7 +1,10 @@
-class HomeController < ApplicationController
+class MeetupsController < ApplicationController
 
 def create
-  current_user.meetups.create(meetup_params)
+    meetup = Meetup.create(meetup_params)
+    meetup.user_id = session[:user_id]
+    meetup.save
+    render json: meetup, status: 201
 end
 
 private
@@ -11,7 +14,7 @@ def meetup_params
                                  :description,
                                  :date,
                                  :place,
-                                 :capacity)
+                                 :capacity) if params[:meetup]
 end
 
 end
