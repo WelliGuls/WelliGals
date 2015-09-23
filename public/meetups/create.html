@@ -4,7 +4,7 @@
     <title></title>
   </head>
   <body>
-    <form id="myForm" action="comment.php" method="post">
+    <form id="createMeetup" action="/meetups" method="post" data-remote="true">
       <input type="text" name="title" placeholder="Title" maxlength="20" required/>
       <textarea name="description" placeholder="Description" required maxlength="250"></textarea>
       <input type="text" name="place" placeholder="Where"required/>
@@ -14,5 +14,16 @@
 
       <input type="submit" value="Create Meetup" />
     </form>
+    <script>
+      $(document).ready(function() {
+        $("createMeetup")
+          .on("ajax:success", function(e, data, status, xhr) {
+            $(window).attr(location, "/meetup/id");
+          })
+          .on("ajax:error", function(e, xhr, status, error) {
+            $("createMeetup").append("<p>ERROR</p>");
+          });
+      });
+    </script>
   </body>
 </html>
