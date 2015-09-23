@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root 'home#index'
+root 'js_apps#dashboard'
 
 get 'home/profile' => 'home#profile'
 

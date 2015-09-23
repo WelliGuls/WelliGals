@@ -21,3 +21,4 @@ RSpec.describe MeetupsController, type: :controller do
     end
   end
 end
+

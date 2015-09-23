@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :authenticate
+
+  def authenticate
+    redirect_to :index unless User.find_by_provider_and_uid(auth["provider"], auth["uid"])
+  end
+
   private
 
   def current_user
