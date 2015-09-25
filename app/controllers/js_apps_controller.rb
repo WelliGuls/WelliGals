@@ -1,12 +1,12 @@
 class JsAppsController < ApplicationController
-before_action :set_auth
 
 def dashboard
-  render file: '/public/dashboard', layout: false
-end
-  private
 
-    def set_auth
-      @auth = session[:omniauth] if session[:omniauth]
-    end
+  if current_user
+    render file: '/public/dashboard', layout: false
+  else
+    redirect_to "/home/index"
+  end
+end
+
 end
